@@ -19,4 +19,4 @@ namespace.drawer.addItem('饼图');
 namespace.drawer.addItem('折线图');
 namespace.drawer.addItem('甜甜圈');
 namespace.drawer.addItem('hasaki');
-namespace.drawer.addItem('kesike');
+namespace.drawer.addItem('kiseki');
