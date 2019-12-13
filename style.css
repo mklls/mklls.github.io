@@ -4,17 +4,31 @@
   border: 0;
 }
 
-.container {
-  display: relative;
-  width: 100%;
+.drawer {
+  position: fixed;
+  width: 280px;
   height: 100vh;
+  overflow-y: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  top: 0;
+  z-index: 10;
   background-color: white;
+  margin-left: -280px;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }
 
-.container .btn-container {
-  width: 100%;
-  height: 100vh;
-  display: relative;
+.drawer .banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,49 +42,321 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0 0 0 0.5px #AAA;
+          box-shadow: 0 0 0 0.5px #AAA;
+  margin-bottom: 5px;
 }
 
-.container .btn-container .btn {
+.drawer .banner .icon {
+  width: 180px;
+  height: 180px;
+  background: url(./assets/icon/banner.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.drawer .tab {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 200px;
-  height: 80px;
-  border-radius: 40px;
-  background: #D2D2D2;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+}
+
+.drawer .tab .active {
+  position: absolute;
+  top: -3em;
+  width: 5px;
+  background-color: #FF6384;
+  height: 3em;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+  display: none;
+}
+
+.drawer .tab .item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 3em;
+  padding: 0 2em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: rbga(0, 0, 0, 0.87);
   position: relative;
-  -webkit-transition: 0.5s all;
-  transition: 0.5s all;
+  -webkit-transition: 500ms all;
+  transition: 500ms all;
 }
 
-.container .btn-container .btn .ball {
-  height: 70px;
-  width: 70px;
-  border-radius: 35px;
-  background-color: white;
-  margin-left: 5px;
-  -webkit-transition: 0.5s all;
-  transition: 0.5s all;
-}
-
-.container .btn-container .btn .label {
+.drawer .tab .item::after {
   position: absolute;
-  right: -60px;
-  font-size: 40px;
+  content: '';
+  width: 0;
+  height: 100%;
+  -webkit-transition: 500ms all;
+  transition: 500ms all;
+  background-color: rgba(0, 101, 255, 0.25);
+  z-index: -1;
+  left: 0;
 }
 
-.container .btn-container .btn:hover {
+.drawer .tab .item:hover {
+  cursor: pointer;
+  background-color: #EAEAEA;
+}
+
+.drawer .tab .item-active {
+  color: #FF6384;
+  background-color: unset !important;
+}
+
+.drawer .tab .item-active::after {
+  width: 100%;
+  right: 0;
+  left: unset;
+}
+
+.pull {
+  margin-left: 0;
+  -webkit-box-shadow: 1px 0 20px 6px #E3E3E3;
+          box-shadow: 1px 0 20px 6px #E3E3E3;
+}
+
+.container {
+  position: relative;
+}
+
+.container .drawer {
+  font-family: 'Sulphur Point', 'Microsoft YaHei';
+}
+
+.container .title-bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 64px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 5px 0 #E3E3E3;
+          box-shadow: 0 0 5px 0 #E3E3E3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Sulphur Point', 'Microsoft YaHei';
+  background: #FFF;
+  z-index: 1;
+}
+
+.container .title-bar .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.container .title-bar .btn:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  border-radius: 50%;
+}
+
+.container .title-bar .btn:hover::after {
+  background-color: #F3F3F3;
+}
+
+.container .title-bar .btn:hover {
   cursor: pointer;
 }
 
-.container .btn-container .on {
-  background-color: #006eff;
+.container .title-bar .drawer-handler {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 
-.container .btn-container .on .ball {
-  margin-left: 125px;
+.container .title-bar .drawer-handler .iconfont {
+  font-size: 12px;
+}
+
+.container .title-bar a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.container .title-bar a .badge {
+  height: 48px;
+  width: 48px;
+  background: url(./assets/icon/icon.svg);
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.container .title-bar a .label {
+  color: #FF6384;
+  font-family: 'Sulphur Point', sans-serif;
+  font-size: 30px;
+}
+
+.container .title-bar .title {
+  margin: 0 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 640px;
+  text-align: center;
+}
+
+.container .title-bar .option {
+  width: 210px;
+  height: 100%;
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .title-bar .option .avatar {
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.container .title-bar .option .avatar img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.container .title-bar .option .follow-me {
+  width: 48px;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+  position: relative;
+}
+
+.container .title-bar .option .follow-me .iconfont {
+  color: #FF6384;
+  font-size: 20px;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+}
+
+.container .title-bar .option .follow-me::before {
+  content: "";
+  z-index: -1;
+  background-color: #FF6384;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+  left: 0;
+  top: 0;
+}
+
+.container .title-bar .option .follow-me:hover {
+  cursor: pointer;
+}
+
+.container .title-bar .option .follow-me:hover .iconfont {
+  color: #FFF;
+}
+
+.container .title-bar .option .follow-me:hover::before {
+  bottom: 0;
+  height: 100%;
+  top: unset;
+}
+
+.container .main-content {
+  background-color: #F9F9F9;
+  padding-top: 3em;
+}
+
+.container .main-content .main-wrapped {
+  margin: 0 auto;
+  width: calc(100% - 2*280px);
 }
 /*# sourceMappingURL=style.css.map */

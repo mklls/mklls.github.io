@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7514811",
+      "name": "菜单",
+      "font_class": "menu_icon",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "9333521",
+      "name": "Paper Plane",
+      "font_class": "PaperPlane",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    }
+  ]
+}
