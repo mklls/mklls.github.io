@@ -1,0 +1,121 @@
+$color-add: #275EFE;
+$black: #1A1E32;
+$font-color: #F6F8FF;
+$color-remove: #e91e48;
+*,
+*::before,
+*::after {transition: 400ms ease-in-out all;}
+
+.button {
+  border: solid 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  padding: 0 2em;
+  border-radius: 1px;
+  box-shadow: 0 0 0 0 gray;
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+
+
+  &:hover {
+    span {color: $font-color;}
+    box-shadow: 0 8px 20px -8px #9d9d9d;
+  }
+}
+
+
+
+.center {
+
+  &::after,&::before  {
+    content: '';
+    width: 0;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+  }
+
+  &::before {
+    right: unset;
+    left: 0;
+  }
+  
+  &:hover::before,
+  &:hover::after {width: 50%;}
+  &:hover span {color: $font-color;}
+}
+
+.alternate {
+  span::before,
+  span::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left:50%;
+    width:25%;
+    height:0%;
+    top: 0;
+  }
+
+  span::after {
+    left: 0;
+    right: 25%;
+  }
+
+  &::after,&::before  {
+    content: '';
+    width: 25%;
+    height: 0%;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+  }
+
+  &::before {
+    right: unset;
+    left: 25%;
+  }
+
+  &:hover::before,
+  &:hover::after {height: 100%;}
+  &:hover span::before,
+  &:hover span::after {height:100%;}
+  &:hover span {color: $font-color;}
+}
+
+.diagonal {
+  overflow: hidden;
+  &::before {
+    content: "";
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    position: absolute;
+    left: -20%;
+    transform: skewX(45deg);
+  }
+  &:hover::before {
+    width: 140%;
+  }
+}
+
+.add {
+  &::after, &::before {background: $color-add;}
+  span {color: $color-add;}
+  span::before,
+  span::after {background-color: $color-add;}
+  border-color: $color-add;
+}
+
+.remove {
+  &::after, &::before {background: $color-remove;}
+  span {color: $color-remove;}
+  span::before,
+  span::after {background-color: $color-remove;}
+  border-color: $color-remove;
+}

@@ -48,6 +48,7 @@ class Drawer {
     if (typeof callbak !== 'undefined') {
       item.addEventListener('click', callback);
     }
+    
     item.textContent = label;
     this.tab.appendChild(item);
     this.data.push(label);
