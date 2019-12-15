@@ -4,7 +4,7 @@ class Tile {
     this.self.className = "tile";
   }
 
-  addItem(text, handler) {
+  addItem(text, handler, enable) {
     let item = document.createElement('div');
     let label = document.createElement('div');
     let right = document.createElement('div');
@@ -23,7 +23,8 @@ class Tile {
     btn.append(bar, ball);
     right.appendChild(btn);
     item.append(label, right);
-    
+    enable === true && item.classList.add('on');
+
     if(typeof handler !== 'undefined') {
       item.addEventListener('click', e=>{
         item.classList.toggle('on')

@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chart</title>
     <link rel="shortcut icon" href="assets/icon/icon.svg"/>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/font/iconfont.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="Chart.js"></script>
     <script src="./src/drawer/Drawer.js"></script>
     <script src="./src/tile/Tile.js"></script>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./slider.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -25,14 +28,23 @@
       </div>
       <div class="main-content">
         <div class="main-wrapped">
-          <div class="intro chart"></div>
+          <div class="intro">
+            <div class="badge"></div>
+            <div class="title">Chart.js</div>
+            <div class="sublabel">适用于设计师和开发者的简单且灵活的<span>JavaScript</span>图表</div>
+            <div class="en sublabel">Simple yet flexible JavaScript charting for designers & developers</div>
+          </div>
           <div class="line chart">
+            <div class="chart-intro">
+              <h1>折线图</h1>
+              <p>折线图用于显示趋势数据或两个数据集的比较。</p>
+            </div>
             <div class="item">
               <div class="label">一周 SAN 值变化趋势</div>
               <div class="constraint"><canvas class="basic"></canvas></div>
             </div>
             <div class="item">
-              <div class="label">与朋友的关系</div>
+              <div class="label">两组数据</div>
               <div class="constraint"><canvas class="multi"></canvas></div>
             </div>        
             <div class="item">
@@ -48,13 +60,160 @@
                   <div class="button alternate add set"><span>添加数据集</span></div>
                   <div class="button center remove single"><span>移除数据</span></div>
                   <div class="button alternate remove set"><span>移除数据集</span></div>
-                  <div class="button diagonal remove random"><span>随机</span></div>
+                  <div class="button diagonal foo random"><span>随机</span></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="bar chart"></div>
-          <div class="radar chart"></div>
+          <div class="bar chart">
+            <div class="chart-intro">
+              <h1>条形图</h1>
+              <p>条形图又称柱状图，通常用于较小的数据集分析，有时用来显示趋势数据，并且可以比较多个数据集，条形图亦可横向排列。</p>
+            </div>
+            <div class="item">
+              <div class="label">数字健康</div>
+              <div class="constraint"><canvas class="basic"></canvas></div>
+            </div>
+            <div class="item">
+              <div class="label">热量排名</div>
+              <div class="constraint"><canvas class="horizon"></canvas></div>
+            </div>        
+            <div class="item">
+              <div class="label">下半年消费</div>
+              <div class="constraint"><canvas class="bi-directional"></canvas></div>
+              <p class="cite">双向柱状图多用于展示包含相反含义的数据的对比</p>
+            </div>
+            <div class="item">
+              <div class="label">分组堆叠</div>
+              <div class="constraint"><canvas class="stacked"></canvas></div>
+              <p class="cite">堆叠柱状图展示每一个分类的总量，以及该分类包含的每个小分类的大小及占比，因此非常适合处理部分与整体的关系。</p>
+            </div>
+            <div class="item">
+              <div class="label">演示</div>
+              <div class="constraint"><canvas class="display"></canvas></div>
+              <div class="action">
+                <div class="buttons">
+                  <div class="button center add single"><span>添加数据</span></div>
+                  <div class="button alternate add set"><span>添加数据集</span></div>
+                  <div class="button center remove single"><span>移除数据</span></div>
+                  <div class="button alternate remove set"><span>移除数据集</span></div>
+                  <div class="button diagonal foo random"><span>随机</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pie chart">
+            <div class="chart-intro">
+              <h1>饼图</h1>
+              <p>饼图，或称饼状图，是一个划分为几个扇形的圆形统计图表，用于描述量、频率或百分比之间的相对关系。</p>
+            </div>
+            <div class="item">
+              <div class="label">常访问的网站</div>
+              <div class="constraint"><canvas class="basic"></canvas></div>
+            </div>
+            <div class="item">
+              <div class="label">甜甜圈</div>
+              <div class="constraint"><canvas class="doughnut"></canvas></div>
+            </div>        
+            <div class="item">
+              <div class="label">演示</div>
+              <div class="constraint"><canvas class="display"></canvas></div>
+              <div class="action">
+                <div class="buttons">
+                  <div class="button center add single"><span>添加数据</span></div>
+                  <div class="button alternate add set"><span>添加数据集</span></div>
+                  <div class="button center remove single"><span>移除数据</span></div>
+                  <div class="button alternate remove set"><span>移除数据集</span></div>
+                  <div class="button diagonal foo random"><span>随机</span></div>
+                </div>
+                <div class="controller-label">削减百分比</div>
+              </div>
+            </div>
+          </div>
+          <div class="polar chart">
+            <div class="chart-intro">
+              <h1>极区图</h1>
+              <p>极区图和通常使用的饼图很类似，扇区的角度和饼图一样但扇区离圆心的距离并不相同。</p>
+            </div>
+            <div class="item">
+              <div class="label">演示</div>
+              <div class="constraint"><canvas class="display"></canvas></div>
+              <div class="action">
+                <div class="buttons">
+                  <div class="button center add single"><span>添加数据</span></div>
+                  <div class="button alternate add set"><span>添加数据集</span></div>
+                  <div class="button center remove single"><span>移除数据</span></div>
+                  <div class="button alternate remove set"><span>移除数据集</span></div>
+                  <div class="button diagonal foo random"><span>随机</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scatter chart">
+            <div class="chart-intro">
+              <h1>散点图</h1>
+              <p>散点图在直角坐标系显示数据的两个变量（X和Y轴）之间的关系，数据显示为点的集合，适合用于在不考虑时间的情况下比较大量的数据点。散点图通常用来识别两个变量之间的相关性或用来观察他们的关系，从而发现某种趋势，对于查找异常值或理解数据分布也很有效。</p>
+            </div>
+            <div class="item">
+              <div class="label">身高体重</div>
+              <div class="constraint"><canvas class="basic"></canvas></div>
+            </div>
+            <div class="item">
+              <div class="label">气泡图</div>
+              <div class="constraint"><canvas class="bubble"></canvas></div>
+              <p class="cite">可以通过气泡的位置分布和大小比例，来分析数据的规律。</p>
+            </div>        
+            <div class="item">
+              <div class="label">演示</div>
+              <div class="constraint"><canvas class="display"></canvas></div>
+              <div class="action">
+                <div class="buttons">
+                  <div class="button center add single"><span>添加数据</span></div>
+                  <div class="button alternate add set"><span>添加数据集</span></div>
+                  <div class="button center remove single"><span>移除数据</span></div>
+                  <div class="button alternate remove set"><span>移除数据集</span></div>
+                  <div class="button diagonal foo random"><span>随机</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="radar chart">
+            <div class="item">
+              <div class="label">价值分析</div>
+              <div class="constraint"><canvas class="basic"></canvas></div>
+              <p class="cite">可用于查看哪些变量在数据集内得分较高或较低</p>
+            </div>
+            <div class="item">
+              <div class="label">全靠友商衬托</div>
+              <div class="constraint"><canvas class="compare"></canvas></div>
+              <p class="cite">评估两款手机的优势和差距</p>
+            </div>        
+            <div class="item">
+              <div class="label">演示</div>
+              <div class="constraint"><canvas class="display"></canvas></div>
+              <div class="action">
+                <div class="buttons">
+                  <div class="button center add single"><span>添加数据</span></div>
+                  <div class="button alternate add set"><span>添加数据集</span></div>
+                  <div class="button center remove single"><span>移除数据</span></div>
+                  <div class="button alternate remove set"><span>移除数据集</span></div>
+                  <div class="button diagonal foo random"><span>随机</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mixed chart">
+            <div class="item">
+              <div class="label">工资明细</div>
+              <div class="constraint"><canvas class="chart-1"></canvas></div>
+              <div class="action action-1"></div>
+            </div>
+            <div class="item">
+              <div class="label">特征分析</div>
+              <div class="constraint"><canvas class="chart-2"></canvas></div>
+              <div class="action action-2"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
       -ms-user-select: none;
           user-select: none;
   top: 0;
-  z-index: 10;
+  z-index: 210;
   background-color: white;
   margin-left: -280px;
   -webkit-transition: 300ms all;
@@ -106,7 +106,7 @@
   height: 100%;
   -webkit-transition: 500ms all;
   transition: 500ms all;
-  background-color: rgba(0, 101, 255, 0.25);
+  background-color: #ffe7e8;
   z-index: -1;
   left: 0;
 }
@@ -132,4 +132,4 @@
   -webkit-box-shadow: 1px 0 20px 6px #E3E3E3;
           box-shadow: 1px 0 20px 6px #E3E3E3;
 }
-/*# sourceMappingURL=Drawer.css.map */
+/*# sourceMappingURL=drawer.css.map */

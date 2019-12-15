@@ -45,7 +45,7 @@ class Drawer {
       this.active.style.top = index*3 + 'em';
     }.bind(this));
 
-    if (typeof callbak !== 'undefined') {
+    if (typeof callback !== 'undefined') {
       item.addEventListener('click', callback);
     }
     

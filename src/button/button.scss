@@ -2,6 +2,8 @@ $color-add: #275EFE;
 $black: #1A1E32;
 $font-color: #F6F8FF;
 $color-remove: #e91e48;
+$color-foo: #03A9F4;
+
 *,
 *::before,
 *::after {transition: 400ms ease-in-out all;}
@@ -118,4 +120,11 @@ $color-remove: #e91e48;
   span::before,
   span::after {background-color: $color-remove;}
   border-color: $color-remove;
+}
+.foo {
+  &::after, &::before {background: $color-foo;}
+  span {color: $color-foo;}
+  span::before,
+  span::after {background-color: $color-foo;}
+  border-color: $color-foo;
 }

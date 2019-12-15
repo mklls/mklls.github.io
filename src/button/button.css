@@ -1,0 +1,173 @@
+*,
+*::before,
+*::after {
+  -webkit-transition: 400ms ease-in-out all;
+  transition: 400ms ease-in-out all;
+}
+
+.button {
+  border: solid 0.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2.5em;
+  padding: 0 2em;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 0 0 0 gray;
+          box-shadow: 0 0 0 0 gray;
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+}
+
+.button:hover {
+  -webkit-box-shadow: 0 8px 20px -8px #9d9d9d;
+          box-shadow: 0 8px 20px -8px #9d9d9d;
+}
+
+.button:hover span {
+  color: #F6F8FF;
+}
+
+.center::after, .center::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+}
+
+.center::before {
+  right: unset;
+  left: 0;
+}
+
+.center:hover::before, .center:hover::after {
+  width: 50%;
+}
+
+.center:hover span {
+  color: #F6F8FF;
+}
+
+.alternate span::before,
+.alternate span::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  width: 25%;
+  height: 0%;
+  top: 0;
+}
+
+.alternate span::after {
+  left: 0;
+  right: 25%;
+}
+
+.alternate::after, .alternate::before {
+  content: '';
+  width: 25%;
+  height: 0%;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+}
+
+.alternate::before {
+  right: unset;
+  left: 25%;
+}
+
+.alternate:hover::before, .alternate:hover::after {
+  height: 100%;
+}
+
+.alternate:hover span::before,
+.alternate:hover span::after {
+  height: 100%;
+}
+
+.alternate:hover span {
+  color: #F6F8FF;
+}
+
+.diagonal {
+  overflow: hidden;
+}
+
+.diagonal::before {
+  content: "";
+  height: 100%;
+  width: 0;
+  z-index: -1;
+  position: absolute;
+  left: -20%;
+  -webkit-transform: skewX(45deg);
+          transform: skewX(45deg);
+}
+
+.diagonal:hover::before {
+  width: 140%;
+}
+
+.add {
+  border-color: #275EFE;
+}
+
+.add::after, .add::before {
+  background: #275EFE;
+}
+
+.add span {
+  color: #275EFE;
+}
+
+.add span::before,
+.add span::after {
+  background-color: #275EFE;
+}
+
+.remove {
+  border-color: #e91e48;
+}
+
+.remove::after, .remove::before {
+  background: #e91e48;
+}
+
+.remove span {
+  color: #e91e48;
+}
+
+.remove span::before,
+.remove span::after {
+  background-color: #e91e48;
+}
+
+.foo {
+  border-color: #03A9F4;
+}
+
+.foo::after, .foo::before {
+  background: #03A9F4;
+}
+
+.foo span {
+  color: #03A9F4;
+}
+
+.foo span::before,
+.foo span::after {
+  background-color: #03A9F4;
+}
+/*# sourceMappingURL=button.css.map */
