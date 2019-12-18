@@ -814,6 +814,8 @@
 
 .container .main-content .main-wrapped .chart .item .action .buttons .button {
   margin: 0 10px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .container .main-content .main-wrapped .chart .item .action .tile {
